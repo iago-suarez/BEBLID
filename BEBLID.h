@@ -10,8 +10,8 @@
 //                           License Agreement
 //                For Open Source Computer Vision Library
 //
-// Copyright (C) 2020, The Graffter S.L. All rights reserved.
-// Third party copyrights are property of their respective owners.
+// Copyright (c) 2020, The Graffter and Universidad Politecnica de Madrid.
+// All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without modification,
 // are permitted provided that the following conditions are met:
