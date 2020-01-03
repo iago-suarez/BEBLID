@@ -86,8 +86,8 @@ class BEBLID : public cv::Feature2D {
   CV_WRAP int defaultNorm() const override;
 
   //! Return true if detector object is empty
-  CV_WRAP bool empty() const CV_OVERRIDE;
-  CV_WRAP cv::String getDefaultName() const CV_OVERRIDE;
+  CV_WRAP bool empty() const override;
+  CV_WRAP cv::String getDefaultName() const override;
 
   /** @brief Creates the BEBLID descriptor.
 

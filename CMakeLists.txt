@@ -5,7 +5,7 @@ project(beblid_demo)
 set(CMAKE_CXX_STANDARD 11)
 
 # If OpenCV is not installed in the system libraries set the variable OpenCV_DIR
-set(OpenCV_DIR /home/iago/graffter/libs/opencv/opencv-4.1.0/linux_contrib_debug/install/lib/cmake/opencv4)
+# set(OpenCV_DIR /home/iago/graffter/libs/opencv/opencv-4.1.0/linux_contrib_debug/install/lib/cmake/opencv4)
 # Find the OpenCV library
 find_package(OpenCV)
 

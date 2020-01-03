@@ -38,6 +38,8 @@
 // the use of this software, even if advised of the possibility of such damage.
 //
 //M*/
+#include <functional>
+#include <utility>
 #include "BEBLID.h"
 
 #define UPM_BEBLID_PARALLEL
@@ -210,6 +212,14 @@ inline float computeABWLResponse(const BEBLID::ABWLParams &wlImageParams, const 
   return average1 - average2;
 }
 
+// Lambda function wrapper to work in OpenCV 3 in C++11
+class ParallelLambdaWrapper : public cv::ParallelLoopBody {
+  std::function<void(const cv::Range &)> f_;
+ public:
+  explicit ParallelLambdaWrapper(std::function<void(const cv::Range &)> f) : f_(std::move(f)) {}
+  void operator()(const cv::Range &r) const override { f_(r); }
+};
+
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////// BEBLID Class ////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
@@ -288,7 +298,7 @@ void BEBLID::computeBEBLID(const cv::Mat &integralImg,
 #ifndef UPM_BEBLID_PARALLEL
   const cv::Range range(0, keypoints.size());
 #else
-  parallel_for_(cv::Range(0, keypoints.size()), [&](const cv::Range &range) {
+  ParallelLambdaWrapper loop_f( [&](const cv::Range &range) {
 #endif
     // Get a pointer to the first element in the range
     ABWLParams *wl;
@@ -378,5 +388,6 @@ void BEBLID::computeBEBLID(const cv::Mat &integralImg,
     }  // End of for each keypoint
 #ifdef UPM_BEBLID_PARALLEL
   });
+  cv::parallel_for_(cv::Range(0, keypoints.size()), loop_f);
 #endif
 }
