@@ -44,77 +44,6 @@
 
 #include <opencv2/opencv.hpp>
 
-struct BelidData {
-  BelidData() = default;
-
-  BelidData(float shrinkage,
-            const cv::Size &patchSize,
-            int nWLs,
-            int minBoxRadius,
-            int maxBoxRadius,
-            std::vector<int> x1s,
-            std::vector<int> y1s,
-            std::vector<int> x2s,
-            std::vector<int> y2s,
-            std::vector<int> boxSize,
-            std::vector<float> alpha
-  ) : shrinkage(shrinkage),
-      patchSize(patchSize),
-      nWLs(nWLs),
-      x1s(std::move(x1s)),
-      y1s(std::move(y1s)),
-      x2s(std::move(x2s)),
-      y2s(std::move(y2s)),
-      boxSize(std::move(boxSize)),
-      alphas(std::move(alpha)) {}
-
-  bool operator==(const BelidData &rhs) const {
-    return shrinkage == rhs.shrinkage &&
-        patchSize == rhs.patchSize &&
-        nWLs == rhs.nWLs &&
-        x1s == rhs.x1s &&
-        y1s == rhs.y1s &&
-        x2s == rhs.x2s &&
-        y2s == rhs.y2s &&
-        boxSize == rhs.boxSize &&
-        alphas == rhs.alphas &&
-        thresholds == rhs.thresholds;
-  }
-
-  bool operator!=(const BelidData &rhs) const {
-    return !(rhs == *this);
-  }
-
-  // The learning rate of the Adaboost learning process
-  float shrinkage;
-
-  // The size of the patch used in training
-  cv::Size patchSize;
-
-  // The number of weak learners trained in the ensemble
-  int nWLs;
-
-  // The number of output dimensions of the descriptor
-  int nDims;
-
-  // Matrix containing the x1, y1, x2 and y2 values of every weak learner
-  std::vector<int> x1s;
-  std::vector<int> y1s;
-  std::vector<int> x2s;
-  std::vector<int> y2s;
-  std::vector<int> boxSize;
-
-  // Matrix containing the weak learner weights set when training the Adaboost ensemble
-  std::vector<float> alphas;
-
-  // Matrix containing the weak learner thresholds
-  std::vector<float> thresholds;
-};
-
-struct ABWLParams {
-  int x1, x2, y1, y2, boxRadius;
-};
-
 /**
  * Class implementation of BEBLID (Boosted Efficient Binary Local Image Descriptor).
  * The algorithm is a fast binary descriptor with an accuracy similar to SIFT but much faster.
@@ -173,13 +102,19 @@ class BEBLID : public cv::Feature2D {
   static cv::Ptr<BEBLID>
   create(int n_wls = 512, float scale_factor = 1);
 
+  // Struct containing the 6 parameters that define an Average Box weak-learner
+  struct ABWLParams {
+    int x1, y1, x2, y2, boxRadius, th;
+  };
+
  private:
   void computeBEBLID(const cv::Mat &integralImg,
                      const std::vector<cv::KeyPoint> &keypoints,
                      cv::Mat &descriptors);
-  BelidData params_;
+
   std::vector<ABWLParams> wl_params_;
   float scale_factor_ = 1;
+  cv::Size patch_size_;
 };
 
 #endif //BEBLID_DESCRIPTOR_H_
