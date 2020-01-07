@@ -6,13 +6,7 @@ This repository contains the source code of the BEBLID local image descriptor
 
 ## Dependencies
 
-The code depends on OpenCV 4. To install OpenCV in Ubuntu 18.04 you can download it using apt-get:
-
-```shell script
-sudo apt-get install libopencv-dev
-```
-
-Or compile it from sources:
+The code depends on OpenCV 4. To install OpenCV in Ubuntu 18.04 compile it from sources with the following instructions:
 
 ```shell script
 # Install dependencies (Ubuntu 18.04)
