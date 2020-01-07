@@ -1,4 +1,4 @@
-# BEBLID
+# BEBLID: Boosted Efficient Binary Local Image Descriptor
 This repository contains the source code of the BEBLID local image descriptor
 
 
