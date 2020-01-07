@@ -54,6 +54,6 @@ If you use this code, please cite our Pattern Recognition Letters paper:
 **TODO**
 
 ## Contact and Licence
-We provide a free pre-trained version of the execution code. Full execution and training code can be obtained under license, if you are interested please contac us by email: iago.suarez@thegraffter.com
+We provide a free pre-trained version of the execution code. Full execution and training code can be obtained under license, if you are interested please contact us by email: iago.suarez@thegraffter.com
 
 This software was developed by [The Graffter S.L.](http://www.thegraffter.com) in collaboration with the [PCR lab of the Polytechnic University of Madrid](http://www.dia.fi.upm.es/~pcr/research.html).
