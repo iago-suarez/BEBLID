@@ -59,4 +59,4 @@ We provide a free pre-trained version of the execution code. Full execution and 
 * Iago Suárez ( iago.suarez@thegraffter.com ) for technical issues.
 * Miguel Ángel Orellana Sainz ( miguel.orellana@thegraffter.com ) for commercial issues.
 
-This software was developed by [The Graffter S.L.](http://www.thegraffter.com) in collaboration with the [PCR lab of the Polytechnic University of Madrid](http://www.dia.fi.upm.es/~pcr/research.html).
+This software was developed by [The Graffter S.L.](http://www.thegraffter.com) in collaboration with the [PCR lab of the Universidad Politécnica de Madrid](http://www.dia.fi.upm.es/~pcr/research.html).
