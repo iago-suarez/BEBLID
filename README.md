@@ -49,7 +49,7 @@ Process finished with exit code 0
 
 ## References
 
-If you use this code, please cite our Pattern Recognition Letters paper:
+If you use this code, you must cite our Pattern Recognition Letters paper:
 ```bibtex
 @article{SUAREZ2020,
 title = "BEBLID: Boosted Efficient Binary Local Image Descriptor",
