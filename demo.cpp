@@ -63,7 +63,7 @@ int main() {
   std::cout << "Detected  " << points1.size() << " kps in image1" << std::endl;
   std::cout << "Detected  " << points2.size() << " kps in image2" << std::endl;
 
-  // Use 64 bytes per descriptor and configure the scale factor for ORB detector
+  // Use 32 bytes per descriptor and configure the scale factor for ORB detector
   auto descriptor = BEBLID::create(256, 0.75);
 
   // Describe the detected features i both images
