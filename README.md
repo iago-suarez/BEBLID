@@ -1,6 +1,8 @@
 ![Graffter Banner](imgs/banner.jpg)
 # BEBLID: Boosted Efficient Binary Local Image Descriptor
-This repository contains the source code of the BEBLID local image descriptor
+This repository contains the source code of the BEBLID local image descriptor. 
+
+If you like even better matching performance than BEBLID at the same speed, test our recently published [BAD descriptor](https://github.com/iago-suarez/efficient-descriptors). For a binary descriptor with the SIFT matching performance, test our binarized [HashSIFT descriptor](https://github.com/iago-suarez/efficient-descriptors).
 
 
 ![BEBLID Matching Result](imgs/inliners_img.jpg)
